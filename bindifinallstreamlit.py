@@ -105,7 +105,7 @@ def process_image(source_image, matrix_size):
     last_frame = frames[-1]
 
     # Create a new GIF with the last frame repeated
-    repeated_frames = [last_frame.copy() for _ in range(20)]
+    repeated_frames = [last_frame.copy() for _ in range(40)]
 
     # Save the new GIF
     frames.extend(repeated_frames)
