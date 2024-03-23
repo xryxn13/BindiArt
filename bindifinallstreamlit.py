@@ -98,6 +98,19 @@ def process_image(source_image, matrix_size):
                     new_image.paste(img5, (j*img1.width, i*img1.height))
         frames.append(new_image)
     frames[0].save('outputGIF.gif', save_all=True, append_images=frames[1:], loop=1, duration=100)
+    frames = [frame.copy() for frame in ImageSequence.Iterator(OutputGif)]
+
+    # Get the last frame
+    last_frame = frames[-1]
+
+    # Create a new GIF with the last frame repeated
+    repeated_frames = [last_frame.copy() for _ in range(20)]
+
+    # Save the new GIF
+    frames.extend(repeated_frames)
+
+    frames[0].save('OutputGIF.gif', save_all=True, append_images=frames[1:], loop=1, duration=100)
+
     return output_image, (count_1, count_2, count_3, count_4, count_5)
 
 def convert_image_to_bytes(img):
