@@ -98,7 +98,7 @@ def process_image(source_image, matrix_size):
                     new_image.paste(img5, (j*img1.width, i*img1.height))
         frames.append(new_image)
     frames[0].save('outputGIF.gif', save_all=True, append_images=frames[1:], loop=1, duration=100)
-    OutputGif = Image.open('OutputGIF.gif')
+    OutputGif = Image.open('outputGIF.gif')
     frames = [frame.copy() for frame in ImageSequence.Iterator(OutputGif)]
 
     # Get the last frame
